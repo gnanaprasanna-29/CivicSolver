@@ -7,10 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const resolvedIssuesEl = document.getElementById("resolvedIssues");
     const totalVotesEl = document.getElementById("totalVotes");
 
+    function isResolved(status) {
+        return status === "completed" || status === "rejected";
+    }
+
     function updateStats() {
         totalIssuesEl.innerText = problems.length;
-        resolvedIssuesEl.innerText = problems.filter(p => p.status === "resolved").length;
-        totalVotesEl.innerText = problems.reduce((sum, p) => sum + p.votes, 0);
+        resolvedIssuesEl.innerText = problems.filter(p => isResolved(p.status)).length;
+        totalVotesEl.innerText = problems.reduce((sum, p) => sum + (p.votes || 0), 0);
     }
 
     function renderProblems() {
@@ -25,14 +29,20 @@ document.addEventListener("DOMContentLoaded", () => {
             const card = document.createElement("div");
             card.className = "problem-card";
 
+            const imageHTML = p.image
+                ? `<img src="${p.image}" alt="Issue Image" class="problem-image">`
+                : "";
+
             card.innerHTML = `
                 <h3>${p.title}</h3>
                 <p>${p.description}</p>
                 <p><strong>Location:</strong> ${p.location}</p>
                 <p><strong>Date:</strong> ${p.date}</p>
+                ${imageHTML}
                 <p><strong>Status:</strong> ${p.status}</p>
-                <p><strong>Votes:</strong> 
-                    <span id="vote-count-${index}">${p.votes}</span>
+                <p>
+                    <strong>Votes:</strong>
+                    <span id="vote-count-${index}">${p.votes || 0}</span>
                 </p>
                 <button onclick="voteProblem(${index})">Vote</button>
             `;
@@ -42,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     window.voteProblem = function (index) {
-        problems[index].votes += 1;
+        problems[index].votes = (problems[index].votes || 0) + 1;
         localStorage.setItem("problems", JSON.stringify(problems));
 
         document.getElementById(`vote-count-${index}`).innerText = problems[index].votes;

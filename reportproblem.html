@@ -37,15 +37,16 @@
             <label>Date</label>
             <input type="date" id="problemDate" required>
 
-            <label>Upload File</label>
-            <input type="file">
+            <label>Choose File</label>
+            <input type="file" id="problemImage" accept="image/*">
+
 
             <button type="submit">Submit Report</button>
         </form>
 
     </section>
 
-    <script>
+   <script>
         function submitProblem(event) {
             event.preventDefault();
 
@@ -53,23 +54,39 @@
             const description = document.getElementById("problemDescription").value;
             const location = document.getElementById("problemLocation").value;
             const date = document.getElementById("problemDate").value;
+            const imageInput = document.getElementById("problemImage");
 
-            const problem = {
-                title: title,
-                description: description,
-                location: location,
-                date: date,
-                status: "active",
-                votes: 0
+            if (imageInput.files.length === 0) {
+                saveProblem(null);
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function () {
+                saveProblem(reader.result);
             };
+            reader.readAsDataURL(imageInput.files[0]);
 
-            let problems = JSON.parse(localStorage.getItem("problems")) || [];
-            problems.push(problem);
-            localStorage.setItem("problems", JSON.stringify(problems));
+            function saveProblem(imageData) {
+                const problem = {
+                    title,
+                    description,
+                    location,
+                    date,
+                    votes: 0,
+                    status: "pending",
+                    image: imageData
+                };
 
-            window.location.href = "citizen.html";
+                let problems = JSON.parse(localStorage.getItem("problems")) || [];
+                problems.push(problem);
+                localStorage.setItem("problems", JSON.stringify(problems));
+
+                window.location.href = "citizen.html";
+            }
         }
     </script>
+
 
 
 </body>

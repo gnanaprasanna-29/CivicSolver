@@ -19,9 +19,51 @@
 <section class="dashboard">
     <h1>Admin Dashboard</h1>
     <p class="dashboard-subtitle">
-        Review, prioritize, and resolve community-reported issues.
+        Review, manage, and resolve community-reported issues.
     </p>
+
+    <div class="dashboard-stats">
+        <div class="dashboard-box">
+            <h2 id="adminTotal">0</h2>
+            <p>Total Issues</p>
+        </div>
+        <div class="dashboard-box">
+            <h2 id="adminActive">0</h2>
+            <p>Active</p>
+        </div>
+        <div class="dashboard-box">
+            <h2 id="adminResolved">0</h2>
+            <p>Resolved</p>
+        </div>
+        <div class="dashboard-box">
+            <h2 id="adminVotes">0</h2>
+            <p>Total Votes</p>
+        </div>
+    </div>
 </section>
 
+<section class="problems-section">
+    <h2>Reported Issues</h2>
+
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Location</th>
+                <th>Date</th>
+                <th>Votes</th>
+                <th>Image</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="adminProblemTable">
+            <!-- Filled by admin.js -->
+        </tbody>
+    </table>
+</section>
+
+<script src="admin.js"></script>
 </body>
 </html>
+
