@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citizen Dashboard | Civic Solver</title>
+    <link rel="stylesheet" href="project.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <nav class="dashboard-nav">
+            <span class="logo">Civic Solver</span>
+
+            <div class="nav-actions">
+                <a href="#"><button>All Problems</button></a>
+                <a href="#"><button>Report Problem</button></a>
+                <a href="project.html"><button class="logout">Logout</button></a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Dashboard Content -->
+    <section class="dashboard">
+        <h1>Citizen Dashboard</h1>
+        <p class="dashboard-subtitle">
+            Your voice matters! Report issues, vote for change, and help build a better community together.
+        </p>
+
+        <!-- Stats -->
+        <div class="dashboard-stats">
+            <div class="dashboard-box">
+                <h2 id="totalIssues">0</h2>
+                <p>Total Issues</p>
+            </div>
+
+            <div class="dashboard-box">
+                <h2 id="resolvedIssues">0</h2>
+                <p>Resolved</p>
+            </div>
+
+            <div class="dashboard-box">
+                <h2 id="totalVotes">0</h2>
+                <p>Total Votes</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
