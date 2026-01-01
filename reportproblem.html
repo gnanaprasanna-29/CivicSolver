@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report a Problem | Civic Solver</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <nav class="dashboard-nav">
+            <span class="logo">Civic Solver</span>
+            <div class="nav-actions">
+                <a href="citizen.html"><button>Dashboard</button></a>
+                <a href="index.html"><button class="logout">Logout</button></a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Report Problem Form -->
+    <section class="report-section">
+        <h1>Report a Problem</h1>
+
+        <form class="report-form" onsubmit="submitProblem(event)">
+
+            <label>Problem Title</label>
+            <input type="text" id="problemTitle" placeholder="Enter problem title" required>
+
+            <label>Detailed Description</label>
+            <textarea id="problemDescription" placeholder="Describe the problem in detail" rows="5" required></textarea>
+
+            <label>Location</label>
+            <input type="text" id="problemLocation" placeholder="Enter problem location" required>
+
+            <label>Date</label>
+            <input type="date" id="problemDate" required>
+
+            <label>Upload File</label>
+            <input type="file">
+
+            <button type="submit">Submit Report</button>
+        </form>
+
+    </section>
+
+    <script>
+        function submitProblem(event) {
+            event.preventDefault();
+
+            const title = document.getElementById("problemTitle").value;
+            const description = document.getElementById("problemDescription").value;
+            const location = document.getElementById("problemLocation").value;
+            const date = document.getElementById("problemDate").value;
+
+            const problem = {
+                title: title,
+                description: description,
+                location: location,
+                date: date,
+                status: "active",
+                votes: 0
+            };
+
+            let problems = JSON.parse(localStorage.getItem("problems")) || [];
+            problems.push(problem);
+            localStorage.setItem("problems", JSON.stringify(problems));
+
+            window.location.href = "citizen.html";
+        }
+    </script>
+
+
+</body>
+</html>

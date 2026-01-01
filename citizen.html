@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Citizen Dashboard | Civic Solver</title>
-    <link rel="stylesheet" href="project.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
@@ -14,9 +14,15 @@
             <span class="logo">Civic Solver</span>
 
             <div class="nav-actions">
-                <a href="#"><button>All Problems</button></a>
-                <a href="#"><button>Report Problem</button></a>
-                <a href="project.html"><button class="logout">Logout</button></a>
+                <a href="citizen.html">
+                    <button>All Problems</button>
+                </a>
+
+                <a href="reportproblem.html">
+                    <button>Report Problem</button>
+                </a>
+
+                <a href="index.html"><button class="logout">Logout</button></a>
             </div>
         </nav>
     </header>
@@ -47,6 +53,12 @@
         </div>
     </section>
 
-    <script src="dashboard.js"></script>
+    <section class="problems-section">
+        <h2>Reported Problems</h2>
+        <div id="problemList"></div>
+    </section>
+
+
+    <script src="citizen.js"></script>
 </body>
 </html>
