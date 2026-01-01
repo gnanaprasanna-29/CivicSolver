@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Citizen Login | Civic Solver</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div class="login-container">
+    <div class="login-box">
+        <h2>Citizen Login</h2>
+        <p>Login to report issues and vote for change</p>
+
+        <form onsubmit="citizenLogin(event)">
+            <label>Email</label>
+            <input type="email" required placeholder="Enter your email">
+
+            <label>Password</label>
+            <input type="password" required placeholder="Enter your password">
+
+            <button type="submit">Login</button>
+        </form>
+
+        <p class="register-text">
+            <a href="index.html">← Back to Home</a>
+        </p>
+    </div>
+</div>
+
+<script>
+function citizenLogin(event) {
+    event.preventDefault();
+    window.location.href = "citizen.html";
+}
+</script>
+
+</body>
+</html>

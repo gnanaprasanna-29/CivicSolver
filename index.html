@@ -15,7 +15,7 @@
             <span>
                 <a href="#problems"><button>Problems</button></a>
                 <a href="#features"><button>Features</button></a>
-                <a href="login.html"><button>Login</button></a>
+                <button onclick="openLoginOptions()">Login</button>
                 <button>Register</button>
             </span>
         </nav>
@@ -29,9 +29,10 @@
             Empowering communities to identify, report, and resolve local issues together.
         </p>
 
-        <a href="login.html">
+        <a href="citizenlogin.html">
             <button>Report an Issue</button>
         </a>
+
 
         <!-- Stats -->
         <div class="stats">
@@ -210,6 +211,17 @@
             <p>© 2025 Civic Solver. All rights reserved.</p>
         </div>
     </footer>
+
+    <div id="loginModal" class="login-modal">
+        <div class="login-modal-content">
+            <h3>Select Login Type</h3>
+
+            <button onclick="goCitizenLogin()">Citizen</button>
+            <button onclick="goAdminLogin()">Admin</button>
+
+            <span class="close" onclick="closeLoginOptions()">×</span>
+        </div>
+    </div>
 
     <script src="index.js"></script>
 

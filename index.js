@@ -19,3 +19,20 @@ document.addEventListener("DOMContentLoaded", () => {
     resolvedEl.innerText = resolvedCount;
     votesEl.innerText = totalVotes;
 });
+
+
+function openLoginOptions() {
+    document.getElementById("loginModal").style.display = "flex";
+}
+
+function closeLoginOptions() {
+    document.getElementById("loginModal").style.display = "none";
+}
+
+function goCitizenLogin() {
+    window.location.href = "citizenlogin.html";
+}
+
+function goAdminLogin() {
+    window.location.href = "adminlogin.html";
+}

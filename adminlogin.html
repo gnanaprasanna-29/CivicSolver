@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login | Civic Solver</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div class="login-container">
+    <div class="login-box">
+        <h2>Admin Login</h2>
+        <p>Login to manage and resolve reported issues</p>
+
+        <form onsubmit="adminLogin(event)">
+            <label>Admin ID</label>
+            <input type="text" required placeholder="Enter admin ID">
+
+            <label>Password</label>
+            <input type="password" required placeholder="Enter password">
+
+            <button type="submit">Login</button>
+        </form>
+
+        <p class="register-text">
+            <a href="index.html">← Back to Home</a>
+        </p>
+    </div>
+</div>
+
+<script>
+function adminLogin(event) {
+    event.preventDefault();
+    window.location.href = "admin.html";
+}
+</script>
+
+</body>
+</html>

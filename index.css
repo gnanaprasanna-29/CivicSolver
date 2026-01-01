@@ -669,3 +669,54 @@ nav button:hover {
         grid-template-columns: 1fr;
     }
 }
+
+/* login */
+.login-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.login-modal-content {
+    background-color: #ffffff;
+    padding: 30px;
+    width: 300px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.login-modal-content h3 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.login-modal-content button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-modal-content button:hover {
+    background-color: #217dbb;
+}
+
+.close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 18px;
+    cursor: pointer;
+}
